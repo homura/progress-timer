@@ -9,6 +9,10 @@ Quick Example
 2. cd examples
 3. open examples in browser
 
+or edit on jsfiddle
+- [basic](https://jsfiddle.net/yz39fzg0/)
+- [progress-bar](https://jsfiddle.net/ffL813kw/)
+
 Install
 -------
 ProgressTimer is an UMD module, so you can
