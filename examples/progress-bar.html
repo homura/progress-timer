@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Bar</title>
+
+  <style>
+    #state {
+      background: black;
+      color: lightgreen;
+      height: 100px;
+      margin-top: 20px;
+      overflow-y: scroll;
+      width: 50%;
+    }
+  </style>
+</head>
+<body>
+<div style="width:100%; height:50px; border:1px solid black;">
+  <div id="progress-bar" style="width:0;background-color: green;height:50px;"></div>
+</div>
+
+<div>
+  <input id="control" type="range" style="width:100%" value="0" min="0" max="3000">
+</div>
+
+<div>
+  <button id="start" onclick="timer.start()" title="start/continue">start</button>
+  <button id="start1000" onclick="timer.start(1000)" title="start from 1000ms">start(1000)</button>
+  <button id="start0" onclick="timer.start(0)" title="start from 0ms">start(0)</button>
+  <button id="pause" onclick="timer.pause()" title="pause">pause</button>
+  <button id="reset" onclick="timer.stop()" title="stop/reset">stop</button>
+</div>
+
+<form>
+  <label> interval:<input id="interval" type="number" min="10"></label>
+  <br>
+  <label> total:<input id="total" type="number" step="1000" min="1000"></label>
+</form>
+
+<div id="state"></div>
+<script src="../progress-timer.js"></script>
+<script>
+
+  var totalTime = 3000
+  var timer = new ProgressTimer({
+    total: totalTime
+  })
+
+  var bar = document.getElementById('progress-bar')
+  var control = document.getElementById('control')
+  var interval = document.getElementById('interval')
+  var total = document.getElementById('total')
+
+  control.max = totalTime
+
+  function changePercent (numerator, denominator) {
+    var per = (numerator / denominator * 100).toFixed(2) + '%'
+    bar.style.width = per
+    bar.innerHTML = per
+  }
+
+  function logState (state) {
+    var innerHTML = document.getElementById('state').innerHTML
+    document.getElementById('state').innerHTML = '<div>state change to ' + state + '</div>' + innerHTML
+  }
+
+  control.addEventListener('input', function () {
+    timer.current(+control.value)
+  })
+
+  interval.value = +timer.interval
+  interval.addEventListener('input', function () {
+    timer.interval = +interval.value
+  })
+
+  total.value = timer.total
+  total.addEventListener('input', function () {
+    control.max = +total.value
+    timer.total = +total.value
+  })
+
+  timer.on('start', function () {
+    total.disabled = true
+    interval.disabled = true
+    logState('start')
+  })
+
+  timer.on('change', function (time) {
+    changePercent(time, timer.total)
+    control.value = timer.currentProgress() * timer.total
+  })
+
+  timer.on('reset', function () {
+    total.disabled = false
+    interval.disabled = false
+    logState('reset')
+  })
+
+  timer.on('pause', function () {
+    logState('pause')
+  })
+
+  timer.on('completed', function () {
+    logState('completed')
+  })
+
+
+</script>
+</body>
+</html>

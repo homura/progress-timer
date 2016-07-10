@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Basic</title>
+</head>
+<body>
+
+<div id="timer1"></div>
+<div id="timer2"></div>
+<div>
+  <button id="start" onclick="timer.start()">start</button>
+  <button id="pause" onclick="timer.pause()">pause</button>
+  <button id="reset" onclick="timer.reset()">reset</button>
+</div>
+
+<script src="../progress-timer.js"></script>
+<script>
+  var timer = new ProgressTimer()
+  var t1 = document.getElementById('timer1')
+  var t2 = document.getElementById('timer2')
+
+  // this is ok
+  setInterval(function () {
+    var current = timer.current()
+    var ms = Math.round(current % 1000)
+    var s = Math.floor(current / 1000 % 60)
+    var min = Math.floor(current / 60000)
+    t1.innerHTML = min + ':' + s + '.' + ms
+  }, 10)
+
+
+  // or do this
+  timer.on('change', function (current) {
+    var ms = Math.round(current % 1000)
+    var s = Math.floor(current / 1000 % 60)
+    var min = Math.floor(current / 60000)
+    t2.innerHTML = min + ':' + s + '.' + ms
+  })
+
+</script>
+</body>
+</html>

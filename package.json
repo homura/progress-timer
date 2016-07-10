@@ -1,0 +1,44 @@
+{
+  "name": "progress-timer",
+  "version": "0.0.1",
+  "description": "An event base progress timer with start,pause,reset",
+  "main": "progress-timer.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/homura/progress-timer.git"
+  },
+  "homepage": "https://github.com/homura/progress-timer",
+  "engines": {
+
+  },
+  "scripts": {
+    "test": "ava",
+    "coverage": "nyc ava",
+    "coverage-report": "nyc --reporter=lcov --reporter=text-lcov ava"
+  },
+  "keywords": [
+    "timer",
+    "start",
+    "pause",
+    "reset"
+  ],
+  "author": "Yonghui Lin",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "gulp": "^3.9.1",
+    "gulp-license": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.4",
+    "nyc": "^6.6.1",
+    "pump": "^1.0.1"
+  },
+  "ava": {
+    "files": [
+      "test/test.js"
+    ],
+    "source": [
+      "progress-timer.js"
+    ]
+  }
+}
