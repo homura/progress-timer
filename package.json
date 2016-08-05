@@ -1,6 +1,6 @@
 {
   "name": "progress-timer",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "An event base progress timer with start,pause,reset",
   "main": "progress-timer.js",
   "repository": {
@@ -8,9 +8,7 @@
     "url": "https://github.com/homura/progress-timer.git"
   },
   "homepage": "https://github.com/homura/progress-timer",
-  "engines": {
-
-  },
+  "engines": {},
   "scripts": {
     "test": "ava",
     "coverage": "nyc ava",
