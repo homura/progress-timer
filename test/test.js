@@ -128,3 +128,14 @@ test.cb('change time while timer is running', t => {
   }, 2000)
 })
 
+test.cb('should emit seek event if change time when running', t => {
+  t.plan(1)
+  var timer = new Timer({total: 500})
+  timer.on('seek', () => t.pass())
+  timer.on('completed', () => t.end())
+  timer.start()
+
+  setTimeout(() => {
+    timer.current(100)
+  }, 200)
+})
