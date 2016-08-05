@@ -259,6 +259,7 @@
           this._state = STATE.PAUSE
           this._pause_at = theTime
         }
+        this.emit('seek')
         this._changeCurrentTime(time)
       }
       return this._currentTime
