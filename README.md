@@ -56,9 +56,9 @@ Documentation
 - current(time) - Get current time in ms **or** change current time
     - time(optional) - Get current time if `time` not provided .Or set current time if `time` provided
 - currentProgress() - Get current progress in percent( same as `timer.current() / timer.total`)
-- state() - Get current state (init | started | pause | )
+- state() - Get current state (init | started | pause | completed)
 - on(event, callback)
-    - event(string) - change | start | pause | reset | completed
+    - event(string) - change | start | pause | reset | completed | seek
     - callback(function) - Callback for spec event
 
 License
