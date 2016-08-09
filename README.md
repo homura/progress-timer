@@ -11,7 +11,7 @@ Quick Example
 
 or edit on jsfiddle
 - [basic](https://jsfiddle.net/yz39fzg0/)
-- [progress-bar](https://jsfiddle.net/ffL813kw/)
+- [progress-bar](https://jsfiddle.net/ffL813kw/1/)
 
 Install
 -------
