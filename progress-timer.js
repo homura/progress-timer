@@ -163,7 +163,7 @@
         return self
       }
       if (self._currentTime >= self.total) {
-        setTimeout(function () { self._changeState(STATE.COMPLETED) }, 0)
+        self._changeState(STATE.COMPLETED)
         return self
       }
 
