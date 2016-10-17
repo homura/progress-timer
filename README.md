@@ -12,6 +12,7 @@ Quick Example
 or edit on jsfiddle
 - [basic](https://jsfiddle.net/yz39fzg0/)
 - [progress-bar](https://jsfiddle.net/ffL813kw/1/)
+- [animation progress control](https://homura.github.io/new-game-sweet-day/)
 
 Install
 -------
